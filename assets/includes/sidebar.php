@@ -18,13 +18,11 @@
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <!-- <i class="ri-account-circle-line"></i> -->
                             <i class="ri-table-2"></i>
-                            <span>Brand Master</span>
+                            <span>Users</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="add-brand.php">Add Brand</a></li>
-                            <li><a href="manage-brands.php">Manage brand</a></li>
-                            <!-- <li><a href="auth-recoverpw.html">Recover Password</a></li> -->
-                            <!-- <li><a href="auth-lock-screen.html">Lock Screen</a></li> -->
+                            <li><a href="add-user.php">Add User</a></li>
+                            <li><a href="manage-user.php">Manage User</a></li>
                         </ul>
                     </li>
 
