@@ -1,19 +1,34 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['loginId']) && empty($_SESSION['loginId'])) {
+    echo '<script>window.location.href="login.php"</script>';
+}
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
+
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | CigaratteQuit - Admin & Dashboard</title>
+    <title>Land Scape - Admin & Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon">
 
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/l.png">
+
     <!-- jquery.vectormap css -->
     <link href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet"
         type="text/css" />
-    
+
     <link rel="stylesheet" href="assets/libs/morris.js/morris.css">
 
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -35,19 +50,19 @@
 </head>
 
 <body>
-    
-<!-- <body data-layout="horizontal" data-topbar="light"> -->
 
-<!-- Begin page -->
-<div id="layout-wrapper">
+    <!-- <body data-layout="horizontal" data-topbar="light"> -->
 
-    
-    <header id="page-topbar">
-        <div class="navbar-header">
-            <div class="d-flex">
-                <!-- LOGO -->
-                <div class="navbar-brand-box">
-                    <!-- <a href="index.php" class="logo logo-dark">
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <!-- <a href="index.php" class="logo logo-dark">
                        <span class="logo-sm">
                             <img src="assets/images/logo-sm-dark.png" alt="logo-sm-dark" height="26">
                         </span>
@@ -57,7 +72,7 @@
                    
                     </a> -->
 
-                    <!-- <a href="index.php" class="logo logo-light">
+                        <!-- <a href="index.php" class="logo logo-light">
                         <span class="logo-sm">
                             <img src="assets/images/logo-sm-light.png" alt="logo-sm-light" height="26">
                         </span>
@@ -67,67 +82,67 @@
                     
                     </a> -->
                         <!-- <h3 style="color:white;padding-top:20px;">CigaratteQuit</h3>  -->
-                         <img class="logo-h" src="../images/logo-h.png">
+                        <img class="logo-h" src="assets/images/logo/l.png">
+                    </div>
+
+                    <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
+                        <i class="ri-menu-2-line align-middle"></i>
+                    </button>
+
+                    <!-- App Search-->
+                    <form class="app-search d-none d-lg-block">
+                        <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="ri-search-line"></span>
+                        </div>
+                    </form>
                 </div>
 
-                <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
-                    <i class="ri-menu-2-line align-middle"></i>
-                </button>
+                <div class="d-flex">
 
-                <!-- App Search-->
-                <form class="app-search d-none d-lg-block">
-                    <div class="position-relative">
-                        <input type="text" class="form-control" placeholder="Search...">
-                        <span class="ri-search-line"></span>
-                    </div>
-                </form>
-            </div>
+                    <div class="dropdown d-inline-block d-lg-none ms-2">
+                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ri-search-line"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                            aria-labelledby="page-header-search-dropdown">
 
-            <div class="d-flex">
-
-                <div class="dropdown d-inline-block d-lg-none ms-2">
-                    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ri-search-line"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
-                        aria-labelledby="page-header-search-dropdown">
-                    
-                        <form class="p-3">
-                            <div class="mb-3 m-0">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search ...">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit"><i class="ri-search-line"></i></button>
+                            <form class="p-3">
+                                <div class="mb-3 m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search ...">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit"><i class="ri-search-line"></i></button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
-                </div>
 
-          
 
-                <div class="dropdown d-inline-block">
-                    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
-                          data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="ri-notification-3-line"></i>
-                        <span class="noti-dot"></span>
-                    </button>
 
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
-                        aria-labelledby="page-header-notifications-dropdown">
-                        <div class="p-3">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h6 class="m-0"> Notifications </h6>
-                                </div>
-                                <!-- <div class="col-auto">
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="ri-notification-3-line"></i>
+                            <span class="noti-dot"></span>
+                        </button>
+
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                            aria-labelledby="page-header-notifications-dropdown">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h6 class="m-0"> Notifications </h6>
+                                    </div>
+                                    <!-- <div class="col-auto">
                                     <a href="#!" class="small"> View All</a>
                                 </div> -->
+                                </div>
                             </div>
-                        </div>
-                        <!-- <div data-simplebar style="max-height: 230px;">
+                            <!-- <div data-simplebar style="max-height: 230px;">
                             <a href="#" class="text-reset notification-item">
                                 <div class="d-flex">
                                     <div class="avatar-xs me-3">
@@ -190,35 +205,35 @@
                         </div> -->
 
 
-                        <!-- <div class="p-2 border-top">
+                            <!-- <div class="p-2 border-top">
                             <div class="d-grid">
                                 <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
                                     <i class="mdi mdi-arrow-right-circle me-1"></i> View More..
                                 </a>
                             </div>
                         </div> -->
+                        </div>
                     </div>
-                </div>
 
-                <div class="dropdown d-inline-block user-dropdown">
-                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user" src="assets/images/man (1).png"
-                            alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1">Admin</span>
-                        <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <!-- item-->
-                        <a class="dropdown-item" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
-                        <!-- <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> My Wallet</a>
+                    <div class="dropdown d-inline-block user-dropdown">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle header-profile-user" src="assets/images/man (1).png"
+                                alt="Header Avatar">
+                            <span class="d-none d-xl-inline-block ms-1">Admin</span>
+                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            <a class="dropdown-item" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
+                            <!-- <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> My Wallet</a>
                         <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end mt-1">11</span><i class="ri-settings-2-line align-middle me-1"></i> Settings</a>
                         <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock screen</a> -->
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="#"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="logout.php"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-    </header>
+            </div>
+        </header>

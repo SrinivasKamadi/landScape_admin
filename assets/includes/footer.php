@@ -1,20 +1,22 @@
 <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <script>document.write(new Date().getFullYear())</script> © landScape.
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="text-sm-end d-none d-sm-block">
-                            All rights reserved by <a  target="_blank">Makers Mind</a>
-                        </div>
-                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> © landScape.
+            </div>
+            <div class="col-sm-6">
+                <div class="text-sm-end d-none d-sm-block">
+                    All rights reserved by <a target="_blank">Land Scape</a>
                 </div>
             </div>
-        </footer>
-
+        </div>
     </div>
-    <!-- end main content-->
+</footer>
+
+</div>
+<!-- end main content-->
 
 </div>
 <!-- END layout-wrapper -->
